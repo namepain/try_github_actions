@@ -1,0 +1,15 @@
+name: End-to-end tests # 名字随你喜欢
+on: [push, pull_request] # 表示 push 和 pull_request 动作时执行
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout # 步骤一，切出分支代码
+        uses: actions/checkout@v1 # 使用社区现成的 action
+
+      - name: Cypress run # 步骤二，运行 cypress
+        uses: cypress-io/github-action@v1 # 使用官方提供的 action
+        with:
+          build: npm run build
+          start: npm start
+          wait-on: http://localhost:1234
