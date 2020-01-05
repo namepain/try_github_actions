@@ -13,3 +13,12 @@ jobs:
           build: npm run build
           start: npm start
           wait-on: http://localhost:1234
+
+      # 发布到 GitHub page
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
+          BUILD_SCRIPT: npm run build
