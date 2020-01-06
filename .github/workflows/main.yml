@@ -14,6 +14,15 @@ jobs:
           start: npm start
           wait-on: http://localhost:1234
 
+          # 以下几个参数可以把 test 记录到 cypress dashboard
+          record: true # 开启记录
+          parallel: true # 并行运行测试更快
+          group: 'Actions example' # 组名称 随意
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}' # 这几个变量不用管
+        env:
+          # 传递 record key 到 CI 环境中
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
       # 发布到 GitHub page
       - name: Build and Deploy
         uses: JamesIves/github-pages-deploy-action@master
