@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["document","getElementById","innerHTML"],"mappings":";AAAAA,SAASC,eAAe,QAAQC,UAAY","file":"try_github_actions.ebc73e50.js","sourceRoot":"..","sourcesContent":["document.getElementById('root').innerHTML = \"Test Github Actions\""]}
